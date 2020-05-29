@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "blogs",
+  "info": {
+    "name": "Blog"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "common": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.page-fields"
+    }
+  }
+}

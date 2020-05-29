@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_page_fields",
+  "info": {
+    "name": "Page fields",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "title_en": {
+      "type": "string"
+    },
+    "navLinkText_en": {
+      "type": "string"
+    },
+    "title_es": {
+      "type": "string"
+    },
+    "navLinkText_es": {
+      "type": "string"
+    }
+  }
+}
