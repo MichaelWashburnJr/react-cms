@@ -14,6 +14,7 @@ export async function getPosts() {
     })
     .catch(err => {
       console.error(err);
+      return [];
     });
 }
 
