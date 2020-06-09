@@ -24,7 +24,7 @@ services:
     environment:
       database__client: mysql
       database__connection__host: mysql
-      database__connection__user: blog-user
+      database__connection__user: root
       database__connection__password: supersecret
       database__connection__database: mysql
     depends_on:
