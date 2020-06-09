@@ -13,7 +13,7 @@ export default function Home({ posts }) {
       </Head>
       <main>
         <MainNav />
-        <div dangerouslySetInnerHTML={{ __html: posts[0].html }} />
+        {posts && posts.length ? <div dangerouslySetInnerHTML={{ __html: posts[0].html }} /> : null}
       </main>
     </div>
   );

@@ -31,6 +31,13 @@ services:
       - mysql
     entrypoint: ["wait-for-db.sh", "mysql", "--", "docker-entrypoint.sh"]
     command: ["node", "current/index.js"]
+    networks:
+      - nginx-proxy
+      - default
+    expose:
+      - "8000"
+      - "2368"
+      - "80"
   
   frontend:
     build: ./frontend
@@ -42,7 +49,34 @@ services:
     ports:
       - 3000:3000
     command:  [ "yarn", "start" ]
+    networks:
+      - nginx-proxy
+      - default
+    expose:
+      - "3000"
+      - "80"
+
+  nginx:
+    build: ./nginx
+    image: nginx:latest
+    restart: always
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+      - 8001:8001
+      - 443:443
+    depends_on:
+      - ghost-api
+      - frontend
+    networks:
+      - nginx-proxy
+      - default
 volumes:
   mysql: {}
   ghost-api: {}
+  nginx: {}
   frontend: {}
+networks:
+  nginx-proxy:
