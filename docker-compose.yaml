@@ -20,7 +20,7 @@ services:
       - ghost-api:/var/lib/ghost-api
     restart: always
     ports:
-      - 80:2368
+      - 8000:2368
     environment:
       database__client: mysql
       database__connection__host: mysql
