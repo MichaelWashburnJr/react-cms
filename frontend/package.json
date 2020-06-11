@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "start-prod": "NODE_ENV='production' next start"
   },
   "dependencies": {
     "@tryghost/content-api": "^1.4.1",

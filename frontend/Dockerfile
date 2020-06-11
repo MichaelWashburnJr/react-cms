@@ -5,6 +5,9 @@ ENV PORT 3000
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+RUN rm -rf /usr/src/app/components
+RUN rm -rf /usr/src/app/api
+RUN rm -rf /usr/src/app/pages
 
 # Installing dependencies
 COPY package*.json /usr/src/app/

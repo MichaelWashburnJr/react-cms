@@ -37,6 +37,7 @@ services:
     expose:
       - "8000"
       - "2368"
+      - "80"
   
   frontend:
     build: ./frontend
@@ -47,12 +48,13 @@ services:
     restart: always
     ports:
       - 3000:3000
-    command:  [ "yarn", "dev" ]
+    command:  [ "yarn", "start-prod" ]
     networks:
       - nginx-proxy
       - default
     expose:
       - "3000"
+      - "80"
 
   nginx:
     build: ./nginx
