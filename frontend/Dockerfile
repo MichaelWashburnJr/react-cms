@@ -4,17 +4,13 @@ ENV PORT 3000
 
 # Create app directory
 RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-RUN rm -rf /usr/src/app/components
-RUN rm -rf /usr/src/app/api
-RUN rm -rf /usr/src/app/pages
+RUN rm -rf /usr/src/app/frontend/src
 
 # Installing dependencies
-COPY package*.json /usr/src/app/
-RUN yarn
-
-# Copying source files
+# Build context directory should be one folder above this file
 COPY . /usr/src/app
+WORKDIR /usr/src/app/frontend
+RUN yarn
 
 # Building app
 RUN yarn build

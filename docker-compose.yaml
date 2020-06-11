@@ -39,9 +39,12 @@ services:
       - "2368"
   
   frontend:
-    build: ./frontend
     image: node:12
     container_name: frontend
+    build:
+      context: '.'
+      dockerfile: './frontend/Dockerfile'
+    working_dir: '/usr/src/app/frontend'
     volumes:
       - frontend:/var/lib/frontend
     restart: always
