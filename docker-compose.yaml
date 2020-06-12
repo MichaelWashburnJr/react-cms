@@ -46,7 +46,12 @@ services:
       dockerfile: './frontend/Dockerfile'
     working_dir: '/usr/src/app/frontend'
     volumes:
-      - frontend:/var/lib/frontend
+      - type: bind
+        source: ./frontend
+        target: /usr/src/app/frontend
+      - node_modules:/usr/src/app/frontend/node_modules
+    environment:
+      - GHOST_API_URL: http://ghost:2368
     restart: always
     ports:
       - 3000:3000
@@ -78,6 +83,6 @@ volumes:
   mysql: {}
   ghost-api: {}
   nginx: {}
-  frontend: {}
+  node_modules: {}
 networks:
   nginx-proxy:

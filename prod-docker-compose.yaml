@@ -48,6 +48,7 @@ services:
     restart: always
     ports:
       - 3000:3000
+    - GHOST_API_URL: http://ghost:2368
     command:  [ "yarn", "start-prod" ]
     networks:
       - nginx-proxy
