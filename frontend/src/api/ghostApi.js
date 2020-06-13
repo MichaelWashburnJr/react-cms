@@ -14,9 +14,9 @@ export async function getPosts() {
       limit: "all"
     })
     .then(posts => {
-      return { posts };
+      return { posts, error: null };
     }, error => {
-      return { posts: [], error }
+      return { posts: [], error: error.toString() }
     })
 }
 
