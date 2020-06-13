@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
+import NoSSR from 'react-no-ssr'
 import Head from 'next/head'
 import { getPosts } from '../api/ghostApi';
 import MainNav from '../components/MainNav';
 
 export default function Home({ posts, error  }) {
-  console.log(posts);
-  if (error) {
-    console.error(error);
-  }
   return (
     <div>
+      <NoSSR>
+        {error && console.log(error)}
+      </NoSSR>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -28,6 +28,6 @@ export default function Home({ posts, error  }) {
 }
 
 export async function getStaticProps() {
-  const {posts, error } = (await getPosts());
+  const { posts, error = null } = (await getPosts());
   return { props: { posts, error } };
 }
