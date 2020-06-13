@@ -3,8 +3,11 @@ import Head from 'next/head'
 import { getPosts } from '../api/ghostApi';
 import MainNav from '../components/MainNav';
 
-export default function Home({ posts }) {
+export default function Home({ posts, error  }) {
   console.log(posts);
+  if (error) {
+    console.error(error);
+  }
   return (
     <div>
       <Head>
@@ -25,6 +28,6 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = (await getPosts());
-  return { props: { posts } };
+  const {posts, error } = (await getPosts());
+  return { props: { posts, error } };
 }

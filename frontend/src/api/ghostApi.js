@@ -13,9 +13,8 @@ export async function getPosts() {
     .browse({
       limit: "all"
     })
-    .catch(err => {
-      console.error(err);
-      return [];
+    .catch(error => {
+      return { posts: [], error }
     });
 }
 
