@@ -9,6 +9,7 @@ export default function Home({ posts, error  }) {
     <div>
       <NoSSR>
         {error && console.log(error)}
+        {error}
       </NoSSR>
       <Head>
         <title>Create Next App</title>
