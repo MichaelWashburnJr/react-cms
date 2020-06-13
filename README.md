@@ -11,6 +11,11 @@ To run this project locally, it's recommended that you use docker-compose to run
 2. Run `docker-compose -p "local-platform" up -d --force-recreate`
 3. Edit files in the `./frontend` folder and they'll be automatically synced into the `frontend` docker container. The default `docker-compose.yaml` file sets up a volume bound to the `./frontend` folder so any file gets transferred to the container. 
 
+### Import Test Database
+I've exported my local database to `mysql/database.sql`. If you've made changes to the databse that you would like persisted in the repo, run `cd mysql && ./dump_db;`. 
+
+If you would like to load the default databse (I recommend this on your first time running), then run `cd mysql && ./import_db`.
+
 ## Docker Tips & Tricks for Local Dev
 
 ### Force rebuild a service
