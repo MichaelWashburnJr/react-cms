@@ -50,7 +50,7 @@ services:
       - 3000:3000
     environment:
       GHOST_API_URL: "http://ghost-api:2368"
-      CONTENT_API_KEY: "cd11624ddc29ad24d2744fff6d"
+      CONTENT_API_KEY: "0f836c8054dc3b909b3698c0de"
 
     command:  [ "yarn", "start-prod" ]
     networks:
