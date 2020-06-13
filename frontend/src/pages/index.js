@@ -13,7 +13,12 @@ export default function Home({ posts }) {
       </Head>
       <main>
         <MainNav />
-        Test 12345
+        <h1>All posts:</h1>
+        <ul>
+        {posts && posts.map(post => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+        </ul>
       </main>
     </div>
   );
