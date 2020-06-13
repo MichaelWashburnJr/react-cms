@@ -1,10 +1,10 @@
 import GhostContentAPI from "@tryghost/content-api";
-import { GHOST_API_URL, CONTENT_API_KEY } from '../constants/Config';
+import { getGhostApi, getGhostApiKey } from '../constants/Config';
 
 // Create API instance with site credentials
 const getApi = () => new GhostContentAPI({
-  url: GHOST_API_URL,
-  key: CONTENT_API_KEY,
+  url: getGhostApi(),
+  key: getGhostApiKey(),
   version: "v3"
 });
 
