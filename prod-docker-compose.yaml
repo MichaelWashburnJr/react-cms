@@ -40,21 +40,15 @@ services:
       - "80"
   
   frontend:
-    image: frontend
+    image: node:12
     container_name: frontend
     build:
       context: '.'
       dockerfile: './frontend/Dockerfile'
     working_dir: '/usr/src/app/frontend'
-    volumes:
-      - frontend:/usr/src/app
     restart: always
     ports:
       - 3000:3000
-    environment:
-      GHOST_API_URL: "http://ghost-api:2368"
-      CONTENT_API_KEY: "0f836c8054dc3b909b3698c0de"
-
     command:  [ "yarn", "start-prod" ]
     networks:
       - nginx-proxy

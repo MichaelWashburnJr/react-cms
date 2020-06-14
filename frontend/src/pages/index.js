@@ -5,11 +5,13 @@ import { getPosts } from '../api/ghostApi';
 import MainNav from '../components/MainNav';
 
 export default function Home({ posts, error  }) {
+  const value = process.env.CONTENT_API_KEY;
   return (
     <div>
       <NoSSR>
         {error && console.log(error)}
         {error}
+        {value}
       </NoSSR>
       <Head>
         <title>Create Next App</title>

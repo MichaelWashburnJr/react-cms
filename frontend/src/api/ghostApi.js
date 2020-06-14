@@ -9,6 +9,7 @@ const getApi = () => new GhostContentAPI({
 });
 
 export async function getPosts() {
+  console.log(getGhostApiKey());
   return await getApi().posts
     .browse({
       limit: "all"

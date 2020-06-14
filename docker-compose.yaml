@@ -51,9 +51,6 @@ services:
         source: ./frontend
         target: /usr/src/app/frontend
       - node_modules:/usr/src/app/frontend/node_modules
-    environment:
-      GHOST_API_URL: "http://ghost-api:2368"
-      CONTENT_API_KEY: "cd11624ddc29ad24d2744fff6d"
     restart: always
     ports:
       - 3000:3000
