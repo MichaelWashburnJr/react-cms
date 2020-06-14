@@ -51,6 +51,7 @@ services:
         source: ./frontend
         target: /usr/src/app/frontend
       - node_modules:/usr/src/app/frontend/node_modules
+      - next:/usr/src/app/frontend/.next
     restart: always
     ports:
       - 3000:3000
@@ -83,5 +84,6 @@ volumes:
   ghost-api: {}
   nginx: {}
   node_modules: {}
+  next: {}
 networks:
   nginx-proxy:
