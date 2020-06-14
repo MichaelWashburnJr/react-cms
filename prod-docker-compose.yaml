@@ -40,14 +40,14 @@ services:
       - "80"
   
   frontend:
-    image: node:12
+    image: frontend
     container_name: frontend
     build:
       context: '.'
       dockerfile: './frontend/Dockerfile'
     working_dir: '/usr/src/app/frontend'
     volumes:
-      - frontend:/usr/src/app/frontend
+      - frontend:/usr/src/app
     restart: always
     ports:
       - 3000:3000
