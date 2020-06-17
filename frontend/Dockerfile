@@ -11,7 +11,6 @@ RUN rm -rf /usr/src/app/frontend/src
 COPY . /usr/src/app
 WORKDIR /usr/src/app/frontend
 RUN yarn
-RUN yarn config set proxy http://nginx
 
 # Building app
 RUN yarn build

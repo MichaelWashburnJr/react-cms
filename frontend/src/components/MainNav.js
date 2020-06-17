@@ -13,16 +13,16 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-const NavInner = styled.div`
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-`;
+// const NavInner = styled.div`
+//   max-width: 1000px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   display: flex;
+//   flex-direction: row;
+//   flex: 1;
+// `;
 
 function MainNav(props){
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +31,7 @@ function MainNav(props){
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavInner>
+        {/* <NavInner> */}
         <NavbarBrand href="/">Mike's Bait and Tackle</NavbarBrand>
         <NavbarToggler onClick={toggle} />
 
@@ -166,7 +166,7 @@ function MainNav(props){
             </UncontrolledDropdown>
           </Nav>
         </Collapse>
-        </NavInner>
+        {/* </NavInner> */}
       </Navbar>
     </div>
   );
