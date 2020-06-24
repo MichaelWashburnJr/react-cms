@@ -1,12 +1,20 @@
 import GhostContentAPI from "@tryghost/content-api";
-import { getGhostApi, getGhostApiKey } from '../constants/Config';
+import { getGhostApiUrl, getGhostApiKey } from '../utils/config';
+import { transformGhostStaticContentUrl } from '../utils/fixAbsoluteGhostUrl';
 
 // Create API instance with site credentials
 const getApi = () => new GhostContentAPI({
-  url: getGhostApi(),
+  url: getGhostApiUrl(),
   key: getGhostApiKey(),
   version: "v3"
 });
+
+function fixPostsUrls(posts) {
+  return posts.map(post => ({
+    ...post,
+    feature_image: transformGhostStaticContentUrl(post.feature_image)
+  }))
+}
 
 export async function getPosts({ limit = 'all', filter } = {}) {
   return await getApi().posts
@@ -15,11 +23,8 @@ export async function getPosts({ limit = 'all', filter } = {}) {
       filter,
     })
     .then(posts => {
-      console.log(posts);
-      return { posts, error: null };
+      return { posts: fixPostsUrls(posts), error: null };
     }, error => {
-      console.error(error);
-      debugger;
       return { posts: [], error: error.toString() }
     })
 }
