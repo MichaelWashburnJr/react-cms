@@ -23,8 +23,10 @@ export async function getPosts({ limit = 'all', filter } = {}) {
       filter,
     })
     .then(posts => {
+      console.log(posts);
       return { posts: fixPostsUrls(posts), error: null };
     }, error => {
+      console.error(error);
       return { posts: [], error: error.toString() }
     })
 }

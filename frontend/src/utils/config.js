@@ -1,7 +1,6 @@
 import getConfig from 'next/config';
 
 export function getGhostApiUrl() {
-  console.log(getConfig());
   const { serverRuntimeConfig: { GHOST_API_URL } } = getConfig();
   return GHOST_API_URL;
 }
