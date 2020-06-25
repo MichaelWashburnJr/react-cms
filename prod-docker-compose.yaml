@@ -68,6 +68,7 @@ services:
     ports:
       - 80:80
       - 8001:8001
+      - 3001:3001
       - 443:443
     depends_on:
       - ghost-api
