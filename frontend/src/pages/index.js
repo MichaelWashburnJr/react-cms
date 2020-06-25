@@ -20,7 +20,7 @@ export default function Home({ featuredPosts, error  }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { posts, error = null } = (await getFeaturedPosts());
   return { props: { featuredPosts: posts, error } };
 }
