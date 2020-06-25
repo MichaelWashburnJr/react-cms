@@ -46,3 +46,11 @@ docker rm $(docker ps -aq)
 ```
 docker rmi $(docker images -q)
 ```
+
+## Managing databases and files
+
+I've added some simple backup and restore scripts to the top level of this repo. I would recommend getting an instance of the site in a state you're happy with and then running `./backup.sh` to store it's database and images. 
+
+If you then want to replicate that site, it's possible to do so by running `docker-compose up -d` on your server and then `./restore-backup.sh`.
+
+Your docker containers must be running already for this to work.
