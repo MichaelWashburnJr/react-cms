@@ -18,6 +18,7 @@ services:
     container_name: ghost-api
     volumes:
       - ghost-api:/var/lib/ghost-api
+      - ghost-uploaded-images:/var/lib/ghost/content/images
     restart: always
     ports:
       - 8000:2368
@@ -63,6 +64,7 @@ services:
     container_name: nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ghost-uploaded-images:/var/www/ghost-uploads/images
     ports:
       - 80:80
       - 8001:8001
@@ -76,7 +78,10 @@ services:
 volumes:
   mysql: {}
   ghost-api: {}
+  ghost-uploaded-images: {}
   nginx: {}
   frontend: {}
+  node_modules: {}
+  next: {}
 networks:
   nginx-proxy:
