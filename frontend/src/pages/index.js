@@ -5,6 +5,7 @@ import MainNav from '../components/MainNav';
 import FeaturedPostsCarousel from '../components/FeaturedPostsCarousel';
 
 export default function Home({ featuredPosts, error  }) {
+  console.log(featuredPosts, error);
   return (
     <div>
       <Head>
