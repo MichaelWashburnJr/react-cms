@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styled from 'styled-components';
 import {
   Carousel,
   CarouselItem,
@@ -6,6 +7,14 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
+
+const StyledCarouselItem = styled(CarouselItem)`
+  img {
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover; 
+  }
+`;
 
 function postsToCarouselItems(posts) {
   return posts.map(post => ({
@@ -39,16 +48,16 @@ const FeaturedPostsCarousel = ({ posts }) => {
   }
 
   const slides = carouselItems.map(item => (
-    <CarouselItem
+    <StyledCarouselItem
       onExiting={() => setAnimating(true)}
       onExited={() => setAnimating(false)}
       key={item.id}
     >
       <img src={item.src} alt={item.altText} />
       <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-    </CarouselItem>
+    </StyledCarouselItem>
   ))
-  console.log(posts);
+
   return (
     <Carousel
       activeIndex={activeIndex}
